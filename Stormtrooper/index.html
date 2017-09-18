@@ -1,0 +1,16 @@
+<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='trackingMethod: best;'>
+    <a-assets>
+      <a-asset-item id="stormtrooperObj" src="./Stormtrooper.obj"></a-asset-item>
+      <a-asset-item id="stormtrooperMtl" src="./Stormtrooper.mtl"></a-asset-item>
+    </a-assets>
+    <a-anchor hit-testing-enabled='true'>
+      <a-entity obj-model="obj: #stormtrooperObj; mtl: #stormtrooperMtl" position='0 0 0' ></a-entity>
+    </a-anchor>
+    <a-camera-static/>
+  </a-scene>
+</body>
