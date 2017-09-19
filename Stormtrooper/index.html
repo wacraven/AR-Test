@@ -3,14 +3,17 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
 
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='trackingMethod: best;'>
+  <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180; debugUIEnabled: true'>
     <a-assets>
-      <a-asset-item id="stormtrooperObj" src="./Stormtrooper.obj"></a-asset-item>
-      <a-asset-item id="stormtrooperMtl" src="./Stormtrooper.mtl"></a-asset-item>
+      <a-asset-item id="stormtrooperObj" src="https://raw.githubusercontent.com/wacraven/AR-Test/master/Stormtrooper/Stormtrooper.obj"></a-asset-item>
+      <a-asset-item id="stormtrooperMtl" src="https://raw.githubusercontent.com/wacraven/AR-Test/master/Stormtrooper/Stormtrooper.mtl"></a-asset-item>
     </a-assets>
     <a-anchor hit-testing-enabled='true'>
-      <a-entity obj-model="obj: #stormtrooperObj; mtl: #stormtrooperMtl" position='0 0 0' ></a-entity>
+      <a-entity obj-model="obj: #stormtrooperObj; mtl: #stormtrooperMtl" position='0 0 0'>
+        <a-animation attribute="rotation" to="0 360 0" dur="10000" easing='linear' repeat="indefinite"></a-animation>
+      </a-entity>
     </a-anchor>
+    <a-marker type="pattern" patternUrl="https://raw.githubusercontent.com/wacraven/AR-Test/master/white-marker.patt"></a-marker>
     <a-camera-static/>
   </a-scene>
 </body>
